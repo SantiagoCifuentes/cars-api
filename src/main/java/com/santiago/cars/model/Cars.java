@@ -29,7 +29,7 @@ public class Cars {
 
 
     @ManyToOne
-    @JoinColumn(name = "brand_id", nullable = true)
+    @JoinColumn(name = "brand_id", nullable = false)
     private Brands  brands;
 
 

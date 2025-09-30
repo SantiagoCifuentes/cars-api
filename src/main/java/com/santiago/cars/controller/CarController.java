@@ -2,6 +2,7 @@ package com.santiago.cars.controller;
 
 import com.santiago.cars.model.Cars;
 import com.santiago.cars.service.CarService;
+import jakarta.validation.Valid;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -29,7 +30,8 @@ public class CarController {
 
     /**
      * Obtiene la lista paginada de autos.
-     * @param pageable información de paginación
+     * @param page número de página (por defecto 0)
+     * @param size tamaño de página (por defecto 10)
      * @return lista de autos
      */
     @GetMapping
@@ -71,7 +73,7 @@ public class CarController {
      */
 
     @PostMapping
-    public ResponseEntity<?> createCar(@RequestBody Cars car) {
+    public ResponseEntity<?> createCar(@RequestBody @Valid Cars car) {
         Cars savedCar = carService.createCar(car);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(Map.of(

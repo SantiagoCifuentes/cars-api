@@ -58,7 +58,7 @@ mvn test
 | `model/`      | Entidades JPA                   |
 | `repository/` | Acceso a datos (Spring Data JPA)|
 
-repository/ — Acceso a datos
+
 
 ## Endpoints principales
 

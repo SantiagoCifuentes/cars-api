@@ -4,5 +4,5 @@ import com.santiago.cars.model.Brands;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface IBrandRepository  extends JpaRepository<Brands, Long> {
+public interface BrandRepository extends JpaRepository<Brands, Long> {
 }

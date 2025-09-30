@@ -1,7 +1,7 @@
 package com.santiago.cars.service.impl;
 
 import com.santiago.cars.model.Cars;
-import com.santiago.cars.repository.ICarRepository;
+import com.santiago.cars.repository.CarRepository;
 import com.santiago.cars.service.CarService;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -11,9 +11,9 @@ import java.util.List;
 @Service
 public class CarServiceImpl implements CarService {
 
-    private final ICarRepository carRepository;
+    private final CarRepository carRepository;
 
-    public CarServiceImpl(ICarRepository carRepository) {
+    public CarServiceImpl(CarRepository carRepository) {
         this.carRepository = carRepository;
     }
 

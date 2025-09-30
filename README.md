@@ -34,6 +34,16 @@ API REST para la gestión de autos y marcas, desarrollada con Java Spring Boot.
    mvn spring-boot:run
    ```
     La aplicación estará disponible en `http://localhost:8020`.
+   
+## 🐳 Correr con Docker
+
+1. Construir la imagen:
+   ```bash
+   docker build -t cars-api .
+2. Ejecutar el contenedor:
+ ```bash  
+   docker run -p 8020:8020 cars-api
+ ```
 
 ## Pruebas
 Ejecuta los tests con

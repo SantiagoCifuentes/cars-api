@@ -7,7 +7,7 @@ API REST para la gestión de autos y marcas, desarrollada con Java Spring Boot.
 - CRUD de autos y marcas
 - Paginación y validación de datos
 - Manejo global de excepciones
-- Documentación Swagger/OpenAPI
+- Documentación con Javadoc
 
 ## Requisitos
 

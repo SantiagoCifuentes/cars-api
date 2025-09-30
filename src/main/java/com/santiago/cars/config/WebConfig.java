@@ -9,10 +9,19 @@ public class WebConfig implements WebMvcConfigurer {
 
     private final LoggingInterceptor loggingInterceptor;
 
+
+    /**
+     * Constructor para inyectar el interceptor de logging.
+     * @param loggingInterceptor el interceptor de logging
+     */
     public WebConfig(LoggingInterceptor loggingInterceptor) {
         this.loggingInterceptor = loggingInterceptor;
     }
 
+    /**
+        * Registra el interceptor de logging en la configuración de Spring MVC.
+     * @param registry el registro de interceptores
+     */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(loggingInterceptor);

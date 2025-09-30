@@ -18,6 +18,11 @@ public class BrandController {
         this.brandService = brandService;
     }
 
+    /**
+     * Obtiene la lista de todas las marcas.
+     *
+     * @return lista de marcas
+     */
     @GetMapping
     public ResponseEntity<?> getAllBrands() {
         return ResponseEntity.ok(Map.of(
@@ -26,6 +31,12 @@ public class BrandController {
                 "message", "Respuesta ok"
         ));
     }
+    /**
+     * Crea una nueva marca.
+     *
+     * @param brand datos de la marca a crear
+     * @return la marca creada
+     */
 
     @PostMapping
     public ResponseEntity<?> createBrand(@RequestBody Brands brand) {

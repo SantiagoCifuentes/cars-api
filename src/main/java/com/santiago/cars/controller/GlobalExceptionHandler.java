@@ -13,6 +13,11 @@ import java.util.Map;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
+    /**
+        * Maneja excepciones de entidad no encontrada.
+     * Los tres métodos se tuvieron que cambiar a utilizarse con un hashmap ya que en los tests
+     * no reconocía el uso de Map.of()
+     */
     @ExceptionHandler(EntityNotFoundException.class)
     public ResponseEntity<?> handleNotFound(EntityNotFoundException ex) {
         Map<String, Object> body = new java.util.HashMap<>();
@@ -22,6 +27,10 @@ public class GlobalExceptionHandler {
 
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(body);
     }
+
+    /**
+        * Maneja errores de validación de argumentos.
+     */
 
     public ResponseEntity<?> handleValidationErrors(MethodArgumentNotValidException ex) {
         List<String> errors = ex.getBindingResult()
@@ -42,6 +51,10 @@ public class GlobalExceptionHandler {
 
         return ResponseEntity.badRequest().body(body);
     }
+
+    /**
+     * Maneja errores generales no capturados.
+     */
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<?> handleGeneralErrors(Exception ex) {

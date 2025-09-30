@@ -17,17 +17,34 @@ public class CarServiceImpl implements CarService {
         this.carRepository = carRepository;
     }
 
+    /**
+     * Obtiene una lista paginada de todos los autos.
+     * @param pageable información de paginación
+     * @return lista de autos
+     */
     @Override
     public List<Cars> getAllCars(Pageable pageable) {
         return carRepository.findAll(pageable).getContent();
     }
 
+    /**
+     * Busca un auto por su ID.
+     * @param id ID del auto
+     * @return el auto encontrado
+     * @throws RuntimeException si no se encuentra
+     */
     @Override
     public Cars getCarById(Long id) {
         return carRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("No se encuentra el carro"));
     }
 
+
+    /**
+     * Crea un nuevo auto.
+     * @param car datos del auto a crear
+     * @return el auto creado
+     */
     @Override
     public Cars createCar(Cars car) {
         return carRepository.save(car);

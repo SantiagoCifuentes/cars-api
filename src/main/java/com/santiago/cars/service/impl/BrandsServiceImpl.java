@@ -22,11 +22,21 @@ public class BrandsServiceImpl implements BrandsService {
 
 
 
+    /**
+     * Obtiene la lista de todas las marcas.
+     * @return lista de marcas
+     */
     @Override
     public List<Brands> getAllBrands() {
         return brandsRepository.findAll();
     }
 
+
+    /**
+     * Crea una nueva marca.
+     * @param brands datos de la marca a crear
+     * @return la marca creada
+     */
     @Override
     public Brands createBrand(Brands brands) {
         return brandsRepository.save(brands);

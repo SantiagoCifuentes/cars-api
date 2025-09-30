@@ -2,6 +2,7 @@ package com.santiago.cars.model;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "cars")
@@ -10,15 +11,19 @@ public class Cars {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotNull
     @Column(length = 30, nullable = false)
     private String carModel;
 
     @Column(length = 100)
     private String description;
 
+    @NotNull
     @Column(nullable = false)
     private Integer price;
 
+    @NotNull
     @Column(nullable = false)
     private Integer mileage;
 

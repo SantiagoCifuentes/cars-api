@@ -4,6 +4,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "brands")
@@ -12,6 +13,7 @@ public class Brands {
     @Id
     private Long id;
 
+    @NotNull
     @Column(length = 20, nullable = false, unique = true)
     private String name;
 

@@ -40,33 +40,51 @@ Ejecuta los tests con
 mvn test
 
 ## Estructura del proyecto
-controller/ — Controladores REST
-service/ — Lógica de negocio
-model/ — Entidades JPA
+
+| Carpeta       | Descripción                     |
+|---------------|---------------------------------|
+| `controller/` | Controladores REST              |
+| `service/`    | Lógica de negocio               |
+| `model/`      | Entidades JPA                   |
+| `repository/` | Acceso a datos (Spring Data JPA)|
+
 repository/ — Acceso a datos
 
 ## Endpoints principales
-POST /api/brands — Crear una marca
 
-Body ejemplo:
+**Carros**
+
+| Método | Endpoint       | Descripción          |
+|--------|---------------|----------------------|
+| `GET`  | `/api/cars`   | Listar autos (paginación) |
+| `POST` | `/api/cars`   | Crear un auto        |
+
+
+Ejemplo Body:
+```json
 {
-"id": 1,
-"name": "Toyota"
+  "carModel": "Mercedes Benz",
+  "description": "Lo mejorcito",
+  "price": 15000,
+  "mileage": 12000,
+  "brand_id": {
+    "id": 3,
+    "name": "Mercedes"
+  }
 }
+```
 
-POST /api/cars — Crear un auto
-Body ejemplo:
+**Marcas**
+
+| Método | Endpoint      | Descripción     |
+| ------ | ------------- | --------------- |
+| `POST` | `/api/brands` | Crear una marca |
 
 
+```json
 {
-"carModel": "Mercedes benz",
-"description": "Lo mejorcito",
-"price": 15000,
-"mileage": 12000,
-"brand_id": {
-"id": 3,
-"name": "Mercedes"
+  "id": 1,
+  "name": "Toyota"
 }
-
-GET /api/cars — Listar autos (soporta paginación)
+```
 
